@@ -11,6 +11,10 @@ public class Direction {
         this.direction = 'W';
     }
 
+    public void gotoN() {
+        this.direction = 'N';
+    }
+
     public char where() {
         return this.direction;
     }

@@ -23,4 +23,13 @@ class DirectionTest {
 
         Assertions.assertEquals(direction.where(), 'W');
     }
+
+    @Test
+    void should_go_to_n() {
+        Direction direction = new Direction();
+
+        direction.gotoN();
+
+        Assertions.assertEquals(direction.where(), 'N');
+    }
 }
