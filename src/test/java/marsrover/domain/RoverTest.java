@@ -25,38 +25,11 @@ class RoverTest {
     }
 
     @Test
-    void should_go_to_s() {
+    void should_set_a_direction() {
         Rover rover = new Rover();
 
-        rover.gotoS();
+        rover.setDirection(Direction.S);
 
         Assertions.assertEquals(rover.where(), Direction.S);
-    }
-
-    @Test
-    void should_go_to_n() {
-        Rover rover = new Rover();
-
-        rover.gotoN();
-
-        Assertions.assertEquals(rover.where(), Direction.N);
-    }
-
-    @Test
-    void should_go_to_w() {
-        Rover rover = new Rover();
-
-        rover.gotoW();
-
-        Assertions.assertEquals(rover.where(), Direction.W);
-    }
-
-    @Test
-    void should_go_to_e() {
-        Rover rover = new Rover();
-
-        rover.gotoE();
-
-        Assertions.assertEquals(rover.where(), Direction.E);
     }
 }

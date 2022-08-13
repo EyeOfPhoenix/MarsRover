@@ -21,23 +21,11 @@ public class Rover {
         return positionY;
     }
 
-    public void gotoS() {
-        direction = Direction.S;
-    }
-
-    public void gotoN() {
-        direction = Direction.N;
-    }
-
-    public void gotoW() {
-        direction = Direction.W;
-    }
-
-    public void gotoE() {
-        direction = Direction.E;
-    }
-
     public Direction where() {
         return direction;
+    }
+
+    public void setDirection(Direction direction) {
+        this.direction = direction;
     }
 }
