@@ -33,6 +33,10 @@ public class Rover {
         direction = Direction.W;
     }
 
+    public void gotoE() {
+        direction = Direction.E;
+    }
+
     public Direction where() {
         return direction;
     }
