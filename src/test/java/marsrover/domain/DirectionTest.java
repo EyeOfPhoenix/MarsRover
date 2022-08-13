@@ -32,4 +32,13 @@ class DirectionTest {
 
         Assertions.assertEquals(direction.where(), 'N');
     }
+
+    @Test
+    void should_go_to_e() {
+        Direction direction = new Direction();
+
+        direction.gotoE();
+
+        Assertions.assertEquals(direction.where(), 'E');
+    }
 }
