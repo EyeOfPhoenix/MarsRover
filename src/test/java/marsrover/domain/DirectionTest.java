@@ -14,4 +14,13 @@ class DirectionTest {
 
         Assertions.assertEquals(direction.where(), 'S');
     }
+
+    @Test
+    void should_go_to_w() {
+        Direction direction = new Direction();
+
+        direction.gotoW();
+
+        Assertions.assertEquals(direction.where(), 'W');
+    }
 }

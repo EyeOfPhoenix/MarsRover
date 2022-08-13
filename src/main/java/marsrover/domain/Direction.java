@@ -7,6 +7,10 @@ public class Direction {
         this.direction = 'S';
     }
 
+    public void gotoW() {
+        this.direction = 'W';
+    }
+
     public char where() {
         return this.direction;
     }
