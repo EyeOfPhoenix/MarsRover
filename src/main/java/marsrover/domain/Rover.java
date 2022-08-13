@@ -29,6 +29,10 @@ public class Rover {
         direction = Direction.N;
     }
 
+    public void gotoW() {
+        direction = Direction.W;
+    }
+
     public Direction where() {
         return direction;
     }

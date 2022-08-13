@@ -41,4 +41,13 @@ class RoverTest {
 
         Assertions.assertEquals(rover.where(), Direction.N);
     }
+
+    @Test
+    void should_go_to_w() {
+        Rover rover = new Rover();
+
+        rover.gotoW();
+
+        Assertions.assertEquals(rover.where(), Direction.W);
+    }
 }
