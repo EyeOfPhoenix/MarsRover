@@ -14,4 +14,12 @@ public class Rover {
     public int getPositionX() {
         return point.getX();
     }
+
+    public void setPositionY(int y) {
+        point.setY(y);
+    }
+
+    public int getPositionY() {
+        return point.getY();
+    }
 }

@@ -14,4 +14,13 @@ class RoverTest {
 
         Assertions.assertEquals(rover.getPositionX(), 5);
     }
+
+    @Test
+    void should_init_the_position_y() {
+        Rover rover = new Rover();
+
+        rover.setPositionY(2);
+
+        Assertions.assertEquals(rover.getPositionY(), 2);
+    }
 }
