@@ -32,4 +32,13 @@ class RoverTest {
 
         Assertions.assertEquals(rover.where(), Direction.S);
     }
+
+    @Test
+    void should_go_to_n() {
+        Rover rover = new Rover();
+
+        rover.gotoN();
+
+        Assertions.assertEquals(rover.where(), Direction.N);
+    }
 }
