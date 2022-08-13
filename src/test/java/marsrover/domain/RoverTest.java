@@ -23,4 +23,13 @@ class RoverTest {
 
         Assertions.assertEquals(rover.getPositionY(), 4);
     }
+
+    @Test
+    void should_go_to_s() {
+        Rover rover = new Rover();
+
+        rover.gotoS();
+
+        Assertions.assertEquals(rover.where(), Direction.S);
+    }
 }

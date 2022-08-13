@@ -3,6 +3,7 @@ package marsrover.domain;
 public class Rover {
     private int positionX;
     private int positionY;
+    private Direction direction;
 
     public void setPositionX(int x) {
         this.positionX = x;
@@ -18,5 +19,13 @@ public class Rover {
 
     public int getPositionY() {
         return positionY;
+    }
+
+    public void gotoS() {
+        direction = Direction.S;
+    }
+
+    public Direction where() {
+        return direction;
     }
 }
