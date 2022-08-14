@@ -3,8 +3,8 @@ package marsrover.domain.rover;
 import marsrover.domain.Direction;
 
 public class Rover {
-    private final int positionX;
-    private final int positionY;
+    private int positionX;
+    private int positionY;
     private final Direction direction;
     private String commands;
 
@@ -32,5 +32,14 @@ public class Rover {
 
     public Direction where() {
         return direction;
+    }
+
+    public void moveForward(int steps) {
+        switch (direction) {
+            case S -> positionY -= steps;
+            case N -> positionY += steps;
+            case W -> positionX -= steps;
+            case E -> positionX += steps;
+        }
     }
 }
