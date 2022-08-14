@@ -107,5 +107,39 @@ class RoverTest {
         Assertions.assertEquals(rover.getPositionX(), -99);
     }
 
+    @Test
+    void should_turn_left_when_direction_is_s() {
+        Rover rover = new Rover(1, 2, Direction.S);
 
+        rover.turnLeft();
+
+        Assertions.assertEquals(rover.where(), Direction.E);
+    }
+
+    @Test
+    void should_turn_left_when_direction_is_e() {
+        Rover rover = new Rover(1, 2, Direction.E);
+
+        rover.turnLeft();
+
+        Assertions.assertEquals(rover.where(), Direction.N);
+    }
+
+    @Test
+    void should_turn_left_when_direction_is_n() {
+        Rover rover = new Rover(1, 2, Direction.N);
+
+        rover.turnLeft();
+
+        Assertions.assertEquals(rover.where(), Direction.W);
+    }
+
+    @Test
+    void should_turn_left_when_direction_is_w() {
+        Rover rover = new Rover(1, 2, Direction.W);
+
+        rover.turnLeft();
+
+        Assertions.assertEquals(rover.where(), Direction.S);
+    }
 }

@@ -3,9 +3,10 @@ package marsrover.domain.rover;
 import marsrover.domain.Direction;
 
 public class Rover {
+    private final int NB_DIRECTIONS = 4;
     private int positionX;
     private int positionY;
-    private final Direction direction;
+    private Direction direction;
     private String commands;
 
     public Rover(int positionX, int positionY, Direction direction) {
@@ -50,5 +51,11 @@ public class Rover {
             case W -> positionX += steps;
             case E -> positionX -= steps;
         }
+    }
+
+    public void turnLeft() {
+        int newDirection = (direction.getDirectionValue() + 1) % NB_DIRECTIONS;
+
+        this.direction = Direction.VALUE.getDirectionFromValue(newDirection);
     }
 }
