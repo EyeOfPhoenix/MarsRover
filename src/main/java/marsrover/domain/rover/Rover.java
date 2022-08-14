@@ -32,11 +32,11 @@ public class Rover {
         this.commands = commands;
     }
 
-    public Direction where() {
-        return direction;
-    }
-
     public String getCommands() {
         return commands;
+    }
+
+    public Direction where() {
+        return direction;
     }
 }
