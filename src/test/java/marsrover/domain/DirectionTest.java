@@ -51,4 +51,9 @@ class DirectionTest {
     void should_get_value_3_from_direction_w() {
         Assertions.assertEquals(Direction.W.getDirectionValue(), 3);
     }
+
+    @Test
+    void should_get_value_4_from_direction_value() {
+        Assertions.assertEquals(Direction.VALUE.getDirectionValue(), 4);
+    }
 }
