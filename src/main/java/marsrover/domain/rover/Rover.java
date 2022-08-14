@@ -3,17 +3,15 @@ package marsrover.domain.rover;
 import marsrover.domain.Direction;
 
 public class Rover {
-    private int positionX;
-    private int positionY;
-    private Direction direction;
+    private final int positionX;
+    private final int positionY;
+    private final Direction direction;
     private String commands;
 
-    public void setPositionX(int x) {
-        this.positionX = x;
-    }
-
-    public void setPositionY(int y) {
-        this.positionY = y;
+    public Rover(int positionX, int positionY, Direction direction) {
+        this.positionX = positionX;
+        this.positionY = positionY;
+        this.direction = direction;
     }
 
     public int getPositionX() {
@@ -22,10 +20,6 @@ public class Rover {
 
     public int getPositionY() {
         return positionY;
-    }
-
-    public void setDirection(Direction direction) {
-        this.direction = direction;
     }
 
     public void setCommands(String commands) {

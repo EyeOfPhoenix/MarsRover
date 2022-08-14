@@ -6,21 +6,8 @@ import marsrover.domain.rover.Rover;
 public class RoverUseCase implements IRoverUseCase {
     private final Rover rover;
 
-    public RoverUseCase() {
-        rover = new Rover();
-    }
-
-    public RoverUseCase(int x, int y, Direction direction) {
-        rover = new Rover();
-        this.rover.setPositionX(x);
-        this.rover.setPositionY(y);
-        this.rover.setDirection(direction);
-    }
-
-    public void initPosition(int x, int y, Direction direction) {
-        this.rover.setPositionX(x);
-        this.rover.setPositionY(y);
-        this.rover.setDirection(direction);
+    public RoverUseCase(int positionX, int positionY, Direction direction) {
+        rover = new Rover(positionX, positionY, direction);
     }
 
     @Override
