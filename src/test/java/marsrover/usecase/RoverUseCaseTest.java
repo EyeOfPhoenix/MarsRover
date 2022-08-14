@@ -1,10 +1,9 @@
 package marsrover.usecase;
 
 import marsrover.domain.Direction;
+import marsrover.usecase.rover.RoverUseCase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class RoverUseCaseTest {
     @Test

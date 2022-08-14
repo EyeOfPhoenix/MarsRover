@@ -1,4 +1,4 @@
-package marsrover.usecase;
+package marsrover.usecase.rover;
 
 import marsrover.domain.Direction;
 

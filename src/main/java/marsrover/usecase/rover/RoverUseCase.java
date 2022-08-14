@@ -1,7 +1,7 @@
-package marsrover.usecase;
+package marsrover.usecase.rover;
 
 import marsrover.domain.Direction;
-import marsrover.domain.Rover;
+import marsrover.domain.rover.Rover;
 
 public class RoverUseCase implements IRoverUseCase {
     private final Rover rover;

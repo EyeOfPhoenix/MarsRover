@@ -1,4 +1,6 @@
-package marsrover.domain;
+package marsrover.domain.rover;
+
+import marsrover.domain.Direction;
 
 public class Rover {
     private int positionX;
