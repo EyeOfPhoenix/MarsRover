@@ -71,4 +71,41 @@ class RoverTest {
         Assertions.assertEquals(rover.getPositionX(), 101);
     }
 
+    @Test
+    void should_move_backward_when_direction_is_s() {
+        Rover rover = new Rover(1, 2, Direction.S);
+
+        rover.moveBackward(100);
+
+        Assertions.assertEquals(rover.getPositionY(), 102);
+    }
+
+    @Test
+    void should_move_backward_when_direction_is_n() {
+        Rover rover = new Rover(1, 2, Direction.N);
+
+        rover.moveBackward(100);
+
+        Assertions.assertEquals(rover.getPositionY(), -98);
+    }
+
+    @Test
+    void should_move_backward_when_direction_is_w() {
+        Rover rover = new Rover(1, 2, Direction.W);
+
+        rover.moveBackward(100);
+
+        Assertions.assertEquals(rover.getPositionX(), 101);
+    }
+
+    @Test
+    void should_move_backward_when_direction_is_e() {
+        Rover rover = new Rover(1, 2, Direction.E);
+
+        rover.moveBackward(100);
+
+        Assertions.assertEquals(rover.getPositionX(), -99);
+    }
+
+
 }

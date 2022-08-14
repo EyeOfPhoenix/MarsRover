@@ -42,4 +42,13 @@ public class Rover {
             case E -> positionX += steps;
         }
     }
+
+    public void moveBackward(int steps) {
+        switch (direction) {
+            case S -> positionY += steps;
+            case N -> positionY -= steps;
+            case W -> positionX += steps;
+            case E -> positionX -= steps;
+        }
+    }
 }
