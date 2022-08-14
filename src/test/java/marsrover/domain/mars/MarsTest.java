@@ -50,4 +50,13 @@ class MarsTest {
 
         Assertions.assertEquals(mars.getWorld().get(4), Object.ROVER);
     }
+
+    @Test
+    void should_see_an_obstacle_at_a_position() {
+        Mars mars = new Mars(5, 5);
+
+        mars.putObject(0, 2, Object.OBSTACLE);
+
+        Assertions.assertEquals(mars.seeAtPosition(0, 2), Object.OBSTACLE);
+    }
 }

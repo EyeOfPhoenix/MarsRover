@@ -39,6 +39,10 @@ public class Mars {
         world.add(worldPositionX + width*worldPositionY, object);
     }
 
+    public Object seeAtPosition(int positionX, int positionY) {
+        return world.get(positionX + width*positionY);
+    }
+
     public List<Object> getWorld() {
         return world;
     }
