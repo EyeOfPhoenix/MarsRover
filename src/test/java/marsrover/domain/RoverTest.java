@@ -31,4 +31,13 @@ class RoverTest {
 
         Assertions.assertEquals(rover.where(), Direction.S);
     }
+
+    @Test
+    void should_receive_a_character_array_of_commands() {
+        Rover rover = new Rover();
+
+        rover.setCommands("S100E5");
+
+        Assertions.assertEquals(rover.getCommands(), "S100E5");
+    }
 }
