@@ -10,6 +10,13 @@ public class RoverUseCase implements IRoverUseCase {
         rover = new Rover();
     }
 
+    public RoverUseCase(int x, int y, Direction direction) {
+        rover = new Rover();
+        this.rover.setPositionX(x);
+        this.rover.setPositionY(y);
+        this.rover.setDirection(direction);
+    }
+
     public void initPosition(int x, int y, Direction direction) {
         this.rover.setPositionX(x);
         this.rover.setPositionY(y);
