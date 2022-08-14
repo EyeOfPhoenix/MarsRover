@@ -31,7 +31,7 @@ public class Rover {
         return commands;
     }
 
-    public Direction where() {
+    public Direction getDirection() {
         return direction;
     }
 
@@ -57,5 +57,17 @@ public class Rover {
         int newDirection = (direction.getDirectionValue() + 1) % NB_DIRECTIONS;
 
         this.direction = Direction.VALUE.getDirectionFromValue(newDirection);
+    }
+
+    public void turnRight() {
+        int newDirection = (direction.getDirectionValue() - 1) % NB_DIRECTIONS;
+
+        if (newDirection >= 0) {
+            this.direction = Direction.VALUE.getDirectionFromValue(newDirection);
+        }
+        else {
+            this.direction = Direction.W;
+        }
+
     }
 }

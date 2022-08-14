@@ -22,6 +22,6 @@ public class RoverUseCase implements IRoverUseCase {
 
     @Override
     public Direction getDirection() {
-        return rover.where();
+        return rover.getDirection();
     }
 }

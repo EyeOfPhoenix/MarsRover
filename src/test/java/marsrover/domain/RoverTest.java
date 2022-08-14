@@ -23,7 +23,7 @@ class RoverTest {
     void should_set_a_direction() {
         Rover rover = new Rover(1, 2, Direction.S);
 
-        Assertions.assertEquals(rover.where(), Direction.S);
+        Assertions.assertEquals(rover.getDirection(), Direction.S);
     }
 
     @Test
@@ -113,7 +113,7 @@ class RoverTest {
 
         rover.turnLeft();
 
-        Assertions.assertEquals(rover.where(), Direction.E);
+        Assertions.assertEquals(rover.getDirection(), Direction.E);
     }
 
     @Test
@@ -122,7 +122,7 @@ class RoverTest {
 
         rover.turnLeft();
 
-        Assertions.assertEquals(rover.where(), Direction.N);
+        Assertions.assertEquals(rover.getDirection(), Direction.N);
     }
 
     @Test
@@ -131,7 +131,7 @@ class RoverTest {
 
         rover.turnLeft();
 
-        Assertions.assertEquals(rover.where(), Direction.W);
+        Assertions.assertEquals(rover.getDirection(), Direction.W);
     }
 
     @Test
@@ -140,6 +140,42 @@ class RoverTest {
 
         rover.turnLeft();
 
-        Assertions.assertEquals(rover.where(), Direction.S);
+        Assertions.assertEquals(rover.getDirection(), Direction.S);
+    }
+
+    @Test
+    void should_turn_right_when_direction_is_s() {
+        Rover rover = new Rover(1, 2, Direction.S);
+
+        rover.turnRight();
+
+        Assertions.assertEquals(rover.getDirection(), Direction.W);
+    }
+
+    @Test
+    void should_turn_right_when_direction_is_w() {
+        Rover rover = new Rover(1, 2, Direction.W);
+
+        rover.turnRight();
+
+        Assertions.assertEquals(rover.getDirection(), Direction.N);
+    }
+
+    @Test
+    void should_turn_right_when_direction_is_n() {
+        Rover rover = new Rover(1, 2, Direction.N);
+
+        rover.turnRight();
+
+        Assertions.assertEquals(rover.getDirection(), Direction.E);
+    }
+
+    @Test
+    void should_turn_right_when_direction_is_e() {
+        Rover rover = new Rover(1, 2, Direction.E);
+
+        rover.turnRight();
+
+        Assertions.assertEquals(rover.getDirection(), Direction.S);
     }
 }
