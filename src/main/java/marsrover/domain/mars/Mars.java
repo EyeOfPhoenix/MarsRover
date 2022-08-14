@@ -1,5 +1,7 @@
 package marsrover.domain.mars;
 
+import marsrover.domain.Object;
+
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -8,15 +10,15 @@ public class Mars {
     private final int height;
     private final int width;
 
-    private List<Integer> world;
+    private List<Object> world;
 
     public Mars(int height, int width) {
         this.height = height;
         this.width = width;
-        world = new LinkedList<>(Arrays.asList(new Integer[height*width]));
+        world = new LinkedList<>(Arrays.asList(new Object[height*width]));
     }
 
-    public void putObject(int positionX, int positionY) {
+    public void putObject(int positionX, int positionY, Object object) {
         int worldPositionX;
         int worldPositionY;
 
@@ -34,10 +36,10 @@ public class Mars {
             worldPositionY = positionY % height + height;
         }
 
-        world.add(worldPositionX + width*worldPositionY, 1);
+        world.add(worldPositionX + width*worldPositionY, object);
     }
 
-    public List<Integer> getWorld() {
+    public List<Object> getWorld() {
         return world;
     }
 
