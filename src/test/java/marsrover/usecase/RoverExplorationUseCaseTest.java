@@ -34,4 +34,17 @@ class RoverExplorationUseCaseTest {
         Assertions.assertEquals(roverExplorationUseCase.getRoverDirection(), Direction.E);
     }
 
+    @Test
+    void should_stop_walk_if_an_obstacle_encounter() {
+        Rover rover = new Rover(2, 4, Direction.E);
+        Mars mars = new Mars(5, 5);
+        RoverExplorationUseCase roverExplorationUseCase = new RoverExplorationUseCase(rover, mars);
+        roverExplorationUseCase.setCommandsForRover("f1");
+
+        roverExplorationUseCase.explore();
+
+        Assertions.assertEquals(roverExplorationUseCase.getRoverPositionX(), 2);
+        Assertions.assertEquals(roverExplorationUseCase.getRoverPositionY(), 4);
+        Assertions.assertEquals(roverExplorationUseCase.getRoverDirection(), Direction.E);
+    }
 }

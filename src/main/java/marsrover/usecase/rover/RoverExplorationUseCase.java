@@ -1,6 +1,7 @@
 package marsrover.usecase.rover;
 
 import marsrover.domain.Direction;
+import marsrover.domain.Object;
 import marsrover.domain.mars.Mars;
 import marsrover.domain.rover.Rover;
 
@@ -11,10 +12,19 @@ public class RoverExplorationUseCase implements IRoverExplorationUseCase {
     public RoverExplorationUseCase(Rover rover, Mars mars) {
         this.rover = rover;
         this.mars = mars;
+        mars.putObject(3, 4, Object.OBSTACLE);
     }
 
     public void explore() {
-        while (rover.executeCommands()) {}
+        while (rover.executeCommands()) {
+            Object object = mars.seeAtPosition(rover.getPositionX(), rover.getPositionY());
+
+            if(Object.OBSTACLE.equals(object)) {
+                rover.moveToTheLastPosition();
+
+                return;
+            }
+        }
     }
 
     @Override
