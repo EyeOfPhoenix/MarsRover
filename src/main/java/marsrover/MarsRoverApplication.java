@@ -11,10 +11,37 @@ public class MarsRoverApplication {
     public static void main(String[] args) {
         Rover rover = new Rover(24, 12, Direction.S);
         Mars mars = new Mars(5, 5);
-        IRoverExplorationUseCase iRoverExplorationUseCase = new RoverExplorationUseCase(rover, mars);
+
+        RoverExplorationUseCase roverExplorationUseCase = new RoverExplorationUseCase(rover, mars);
+        IRoverExplorationUseCase iRoverExplorationUseCase = roverExplorationUseCase;
 
         ConsoleAdapter consoleAdapter = new ConsoleAdapter(iRoverExplorationUseCase);
+        consoleAdapter.print(); // show position of the rover
 
-        consoleAdapter.print();
+        System.out.println("\n");
+
+        //Obstacle use case.
+        {
+            rover = new Rover(1, 1, Direction.E);
+            roverExplorationUseCase = new RoverExplorationUseCase(rover, mars);
+            roverExplorationUseCase.setCommandsForRover("ffrbbbbbb");
+            roverExplorationUseCase.explore();
+            iRoverExplorationUseCase = roverExplorationUseCase;
+            consoleAdapter = new ConsoleAdapter(iRoverExplorationUseCase);
+            consoleAdapter.print(); // show message rover encountered an obstacle
+        }
+
+        System.out.println("\n");
+
+        // No obstacle use case
+        {
+            rover = new Rover(1, 1, Direction.E);
+            roverExplorationUseCase = new RoverExplorationUseCase(rover, mars);
+            roverExplorationUseCase.setCommandsForRover("ffrbbrflf");
+            roverExplorationUseCase.explore();
+            iRoverExplorationUseCase = roverExplorationUseCase;
+            consoleAdapter = new ConsoleAdapter(iRoverExplorationUseCase);
+            consoleAdapter.print(); // show message the rover has executed all commands
+        }
     }
 }
