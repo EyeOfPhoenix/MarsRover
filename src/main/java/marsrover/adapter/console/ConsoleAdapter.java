@@ -3,16 +3,16 @@ package marsrover.adapter.console;
 import marsrover.usecase.rover.IRoverExplorationUseCase;
 
 public class ConsoleAdapter {
-    private final IRoverExplorationUseCase iRoverUseCase;
+    private final IRoverExplorationUseCase iRoverExplorationUseCase;
 
-    public ConsoleAdapter(IRoverExplorationUseCase iRoverUseCase) {
-        this.iRoverUseCase = iRoverUseCase;
+    public ConsoleAdapter(IRoverExplorationUseCase iRoverExplorationUseCase) {
+        this.iRoverExplorationUseCase = iRoverExplorationUseCase;
     }
 
     public void print() {
         System.out.printf("Rover(%d, %d, %s)",
-                iRoverUseCase.getRoverPositionX(),
-                iRoverUseCase.getRoverPositionY(),
-                iRoverUseCase.getRoverDirection());
+                iRoverExplorationUseCase.getRoverPositionX(),
+                iRoverExplorationUseCase.getRoverPositionY(),
+                iRoverExplorationUseCase.getRoverDirection());
     }
 }
