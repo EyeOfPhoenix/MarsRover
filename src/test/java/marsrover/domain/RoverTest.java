@@ -208,4 +208,17 @@ class RoverTest {
         Assertions.assertEquals(rover.getDirection(), Direction.E);
         Assertions.assertFalse(isWalking);
     }
+
+    @Test
+    void should_move_up_to_the_last_position() {
+        Rover rover = new Rover(2, 3, Direction.S);
+        rover.setCommands("b2");
+
+        rover.executeCommands();
+        rover.moveToTheLastPosition();
+
+        Assertions.assertEquals(rover.getPositionX(), 2);
+        Assertions.assertEquals(rover.getPositionY(), 3);
+        Assertions.assertEquals(rover.getDirection(), Direction.S);
+    }
 }

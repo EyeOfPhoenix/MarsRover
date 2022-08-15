@@ -7,14 +7,16 @@ import java.util.*;
 public class Rover {
     private final int NB_DIRECTIONS = 4;
     private int positionX;
+    private int lastPositionX;
     private int positionY;
+    private int lastPositionY;
     private Direction direction;
     private String commands;
     private List<String> commandsToBeExecuted;
 
     public Rover(int positionX, int positionY, Direction direction) {
-        this.positionX = positionX;
-        this.positionY = positionY;
+        this.positionX = lastPositionX = positionX;
+        this.positionY = lastPositionY = positionY;
         this.direction = direction;
     }
 
@@ -40,6 +42,7 @@ public class Rover {
     }
 
     public void moveForward(int steps) {
+        lastPositionX = positionX;
         switch (direction) {
             case S -> positionY -= steps;
             case N -> positionY += steps;
@@ -49,6 +52,7 @@ public class Rover {
     }
 
     public void moveBackward(int steps) {
+        lastPositionY = positionY;
         switch (direction) {
             case S -> positionY += steps;
             case N -> positionY -= steps;
@@ -100,5 +104,10 @@ public class Rover {
         }
 
         return true;
+    }
+
+    public void moveToTheLastPosition() {
+        positionX = lastPositionX;
+        positionY = lastPositionY;
     }
 }
