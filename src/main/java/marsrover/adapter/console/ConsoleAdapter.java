@@ -10,9 +10,10 @@ public class ConsoleAdapter {
     }
 
     public void print() {
-        System.out.printf("Rover(%d, %d, %s)",
+        System.out.printf("Rover(%d, %d, %s)\n%s",
                 iRoverExplorationUseCase.getRoverPositionX(),
                 iRoverExplorationUseCase.getRoverPositionY(),
-                iRoverExplorationUseCase.getRoverDirection());
+                iRoverExplorationUseCase.getRoverDirection(),
+                iRoverExplorationUseCase.getRapport());
     }
 }
