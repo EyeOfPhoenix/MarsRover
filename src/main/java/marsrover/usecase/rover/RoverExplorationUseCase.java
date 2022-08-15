@@ -14,6 +14,7 @@ public class RoverExplorationUseCase implements IRoverExplorationUseCase {
         this.rover = rover;
         this.mars = mars;
         mars.putObject(3, 4, Object.OBSTACLE);
+        rapport = "";
     }
 
     public void explore() {
@@ -27,10 +28,12 @@ public class RoverExplorationUseCase implements IRoverExplorationUseCase {
                 return;
             }
         }
+
+        rapport = "Commands executed with success !";
     }
 
     @Override
-    public String showRapport() {
+    public String getRapport() {
         return rapport;
     }
 
