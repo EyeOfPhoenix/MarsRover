@@ -178,4 +178,34 @@ class RoverTest {
 
         Assertions.assertEquals(rover.getDirection(), Direction.S);
     }
+
+    @Test
+    void should_always_walk() {
+        Rover rover = new Rover(1, 2, Direction.S);
+        rover.setCommands("f3 l3 b2 r2");
+
+        rover.executeCommands();
+
+        Assertions.assertEquals(rover.getPositionX(), 1);
+        Assertions.assertEquals(rover.getPositionY(), -1);
+        Assertions.assertEquals(rover.getDirection(), Direction.S);
+        Assertions.assertTrue(rover.isWalking());
+    }
+
+    @Test
+    void should_execute_the_commands() {
+        Rover rover = new Rover(1, 2, Direction.S);
+        rover.setCommands("f3 l3 b2 r2");
+
+        rover.executeCommands();
+        rover.executeCommands();
+        rover.executeCommands();
+        rover.executeCommands();
+        rover.executeCommands();
+
+        Assertions.assertEquals(rover.getPositionX(), 3);
+        Assertions.assertEquals(rover.getPositionY(), -1);
+        Assertions.assertEquals(rover.getDirection(), Direction.E);
+        Assertions.assertFalse(rover.isWalking());
+    }
 }
