@@ -30,7 +30,7 @@ public class Rover {
 
     public void setCommands(String commands) {
         this.commands = commands;
-        commandsToBeExecuted = new LinkedList<>(Arrays.asList(commands.split(" ")));
+        commandsToBeExecuted = new LinkedList<>(Arrays.asList(commands.split("")));
     }
 
     public String getCommands() {
@@ -41,23 +41,23 @@ public class Rover {
         return direction;
     }
 
-    public void moveForward(int steps) {
+    public void moveForward() {
         lastPositionX = positionX;
         switch (direction) {
-            case S -> positionY -= steps;
-            case N -> positionY += steps;
-            case W -> positionX -= steps;
-            case E -> positionX += steps;
+            case S -> positionY--;
+            case N -> positionY++;
+            case W -> positionX--;
+            case E -> positionX++;
         }
     }
 
-    public void moveBackward(int steps) {
+    public void moveBackward() {
         lastPositionY = positionY;
         switch (direction) {
-            case S -> positionY += steps;
-            case N -> positionY -= steps;
-            case W -> positionX += steps;
-            case E -> positionX -= steps;
+            case S -> positionY++;
+            case N -> positionY--;
+            case W -> positionX++;
+            case E -> positionX--;
         }
     }
 
@@ -84,23 +84,21 @@ public class Rover {
             return false;
         }
 
-        String commandToBeExe = commandsToBeExecuted.get(0);
-        char move = commandToBeExe.toUpperCase().charAt(0);
-        int steps = Integer.parseInt(commandToBeExe.substring(1, commandToBeExe.length()));
+        char move = commandsToBeExecuted.get(0).toUpperCase().charAt(0);
         commandsToBeExecuted.remove(0);
 
         switch (move) {
             case 'F':
-                moveForward(steps);
+                moveForward();
                 return true;
             case 'B':
-                moveBackward(steps);
+                moveBackward();
                 return true;
             case 'L':
-                for(int i=0; i<steps; i++) turnLeft();
+                turnLeft();
                 return true;
             case 'R':
-                for(int i=0; i<steps; i++) turnRight();
+                turnRight();
         }
 
         return true;
