@@ -25,7 +25,7 @@ class RoverExplorationUseCaseTest {
         Rover rover = new Rover(2, 6, Direction.S);
         Mars mars = new Mars(5, 5);
         RoverExplorationUseCase roverExplorationUseCase = new RoverExplorationUseCase(rover, mars);
-        roverExplorationUseCase.setCommandsForRover("l1 f1");
+        roverExplorationUseCase.setCommandsForRover("lf");
 
         roverExplorationUseCase.explore();
 
