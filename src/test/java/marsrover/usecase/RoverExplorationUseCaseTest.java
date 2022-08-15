@@ -47,4 +47,19 @@ class RoverExplorationUseCaseTest {
         Assertions.assertEquals(roverExplorationUseCase.getRoverPositionY(), 4);
         Assertions.assertEquals(roverExplorationUseCase.getRoverDirection(), Direction.E);
     }
+
+    @Test
+    void should_print_a_rapport_failed() {
+        Rover rover = new Rover(2, 4, Direction.E);
+        Mars mars = new Mars(5, 5);
+        RoverExplorationUseCase roverExplorationUseCase = new RoverExplorationUseCase(rover, mars);
+        roverExplorationUseCase.setCommandsForRover("f1");
+
+        roverExplorationUseCase.explore();
+
+        Assertions.assertEquals(roverExplorationUseCase.getRoverPositionX(), 2);
+        Assertions.assertEquals(roverExplorationUseCase.getRoverPositionY(), 4);
+        Assertions.assertEquals(roverExplorationUseCase.getRoverDirection(), Direction.E);
+        Assertions.assertEquals(roverExplorationUseCase.showRapport(), "Obstacle encounter at position(3,4).");
+    }
 }

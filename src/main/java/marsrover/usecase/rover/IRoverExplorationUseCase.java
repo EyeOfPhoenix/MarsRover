@@ -6,4 +6,6 @@ public interface IRoverExplorationUseCase {
     int getRoverPositionX();
     int getRoverPositionY();
     Direction getRoverDirection();
+
+    String showRapport();
 }

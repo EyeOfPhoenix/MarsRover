@@ -8,6 +8,7 @@ import marsrover.domain.rover.Rover;
 public class RoverExplorationUseCase implements IRoverExplorationUseCase {
     private final Rover rover;
     private final Mars mars;
+    private String rapport;
 
     public RoverExplorationUseCase(Rover rover, Mars mars) {
         this.rover = rover;
@@ -20,11 +21,17 @@ public class RoverExplorationUseCase implements IRoverExplorationUseCase {
             Object object = mars.seeAtPosition(rover.getPositionX(), rover.getPositionY());
 
             if(Object.OBSTACLE.equals(object)) {
+                rapport = "Obstacle encounter at position(" + rover.getPositionX() + "," + rover.getPositionY() + ").";
                 rover.moveToTheLastPosition();
 
                 return;
             }
         }
+    }
+
+    @Override
+    public String showRapport() {
+        return rapport;
     }
 
     @Override
