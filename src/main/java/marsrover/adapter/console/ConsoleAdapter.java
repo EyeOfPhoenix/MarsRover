@@ -1,18 +1,18 @@
 package marsrover.adapter.console;
 
-import marsrover.usecase.rover.IRoverUseCase;
+import marsrover.usecase.rover.IRoverExplorationUseCase;
 
 public class ConsoleAdapter {
-    private final IRoverUseCase iRoverUseCase;
+    private final IRoverExplorationUseCase iRoverUseCase;
 
-    public ConsoleAdapter(IRoverUseCase iRoverUseCase) {
+    public ConsoleAdapter(IRoverExplorationUseCase iRoverUseCase) {
         this.iRoverUseCase = iRoverUseCase;
     }
 
     public void print() {
         System.out.printf("Rover(%d, %d, %s)",
-                iRoverUseCase.getPositionX(),
-                iRoverUseCase.getPositionY(),
-                iRoverUseCase.getDirection());
+                iRoverUseCase.getRoverPositionX(),
+                iRoverUseCase.getRoverPositionY(),
+                iRoverUseCase.getRoverDirection());
     }
 }

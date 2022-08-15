@@ -2,14 +2,18 @@ package marsrover;
 
 import marsrover.adapter.console.ConsoleAdapter;
 import marsrover.domain.Direction;
-import marsrover.usecase.rover.IRoverUseCase;
-import marsrover.usecase.rover.RoverUseCase;
+import marsrover.domain.mars.Mars;
+import marsrover.domain.rover.Rover;
+import marsrover.usecase.rover.IRoverExplorationUseCase;
+import marsrover.usecase.rover.RoverExplorationUseCase;
 
 public class MarsRoverApplication {
     public static void main(String[] args) {
-        IRoverUseCase iRoverUseCase = new RoverUseCase(24, 12, Direction.S);
+        Rover rover = new Rover(24, 12, Direction.S);
+        Mars mars = new Mars(5, 5);
+        IRoverExplorationUseCase iRoverExplorationUseCase = new RoverExplorationUseCase(rover, mars);
 
-        ConsoleAdapter consoleAdapter = new ConsoleAdapter(iRoverUseCase);
+        ConsoleAdapter consoleAdapter = new ConsoleAdapter(iRoverExplorationUseCase);
 
         consoleAdapter.print();
     }
