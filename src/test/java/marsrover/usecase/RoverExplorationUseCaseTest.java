@@ -25,12 +25,13 @@ class RoverExplorationUseCaseTest {
         Rover rover = new Rover(2, 6, Direction.S);
         Mars mars = new Mars(5, 5);
         RoverExplorationUseCase roverExplorationUseCase = new RoverExplorationUseCase(rover, mars);
+        roverExplorationUseCase.setCommandsForRover("l1 f1");
 
         roverExplorationUseCase.explore();
 
-        Assertions.assertEquals(roverExplorationUseCase.getRoverPositionX(), 1);
-        Assertions.assertEquals(roverExplorationUseCase.getRoverPositionY(), 1);
-        Assertions.assertEquals(roverExplorationUseCase.getRoverDirection(), Direction.N);
+        Assertions.assertEquals(roverExplorationUseCase.getRoverPositionX(), 3);
+        Assertions.assertEquals(roverExplorationUseCase.getRoverPositionY(), 6);
+        Assertions.assertEquals(roverExplorationUseCase.getRoverDirection(), Direction.E);
     }
 
 }

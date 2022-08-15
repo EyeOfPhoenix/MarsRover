@@ -11,11 +11,10 @@ public class RoverExplorationUseCase implements IRoverExplorationUseCase {
     public RoverExplorationUseCase(Rover rover, Mars mars) {
         this.rover = rover;
         this.mars = mars;
-
-        rover.setCommands("l1 f1");
     }
 
     public void explore() {
+        while (rover.executeCommands()) {}
     }
 
     @Override
@@ -31,5 +30,9 @@ public class RoverExplorationUseCase implements IRoverExplorationUseCase {
     @Override
     public Direction getRoverDirection() {
         return rover.getDirection();
+    }
+
+    public void setCommandsForRover(String commands) {
+        rover.setCommands(commands);
     }
 }
