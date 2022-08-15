@@ -19,28 +19,25 @@ public class Mars {
     }
 
     public void putObject(int positionX, int positionY, Object object) {
-        int worldPositionX;
-        int worldPositionY;
-
-        if(positionX >= 0) {
-            worldPositionX = positionX % width;
-        }
-        else {
-            worldPositionX = positionX % width + width;
-        }
-
-        if(positionY >= 0) {
-            worldPositionY = positionY % height;
-        }
-        else {
-            worldPositionY = positionY % height + height;
-        }
+        int worldPositionX = getWorldPositionX(positionX);
+        int worldPositionY = getWorldPositionY(positionY);
 
         world.add(worldPositionX + width*worldPositionY, object);
     }
 
     public Object seeAtPosition(int positionX, int positionY) {
-        return world.get(positionX + width*positionY);
+        int worldPositionX = getWorldPositionX(positionX);
+        int worldPositionY = getWorldPositionY(positionY);
+
+        return world.get(worldPositionX + width*worldPositionY);
+    }
+
+    private int getWorldPositionX(int positionX) {
+        return Math.floorMod(positionX,  width);
+    }
+
+    private int getWorldPositionY(int positionY) {
+        return Math.floorMod(positionY, height);
     }
 
     public List<Object> getWorld() {

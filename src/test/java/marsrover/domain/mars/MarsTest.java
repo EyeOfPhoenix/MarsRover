@@ -59,4 +59,14 @@ class MarsTest {
 
         Assertions.assertEquals(mars.seeAtPosition(0, 2), Object.OBSTACLE);
     }
+
+    @Test
+    void should_see_an_obstacle_at_a_position_with_wrapping_at_edges() {
+        Mars mars = new Mars(5, 5);
+
+        mars.putObject(0, 2, Object.OBSTACLE);
+
+        Assertions.assertEquals(mars.seeAtPosition(-5, -3), Object.OBSTACLE);
+    }
+
 }
