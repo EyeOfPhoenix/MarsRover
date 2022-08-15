@@ -11,13 +11,11 @@ public class Rover {
     private Direction direction;
     private String commands;
     private List<String> commandsToBeExecuted;
-    private boolean isWalking;
 
     public Rover(int positionX, int positionY, Direction direction) {
         this.positionX = positionX;
         this.positionY = positionY;
         this.direction = direction;
-        isWalking = false;
     }
 
     public int getPositionX() {
@@ -77,13 +75,11 @@ public class Rover {
 
     }
 
-    public void executeCommands() {
+    public boolean executeCommands() {
         if(commandsToBeExecuted.size() == 0) {
-            isWalking = false;
-            return;
+            return false;
         }
 
-        isWalking = true;
         String commandToBeExe = commandsToBeExecuted.get(0);
         char move = commandToBeExe.toUpperCase().charAt(0);
         int steps = Integer.parseInt(commandToBeExe.substring(1, commandToBeExe.length()));
@@ -92,19 +88,17 @@ public class Rover {
         switch (move) {
             case 'F':
                 moveForward(steps);
-                return;
+                return true;
             case 'B':
                 moveBackward(steps);
-                return;
+                return true;
             case 'L':
                 for(int i=0; i<steps; i++) turnLeft();
-                return;
+                return true;
             case 'R':
                 for(int i=0; i<steps; i++) turnRight();
         }
-    }
 
-    public boolean isWalking() {
-        return isWalking;
+        return true;
     }
 }

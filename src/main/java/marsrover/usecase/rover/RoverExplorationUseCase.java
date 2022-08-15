@@ -11,6 +11,11 @@ public class RoverExplorationUseCase implements IRoverExplorationUseCase {
     public RoverExplorationUseCase(Rover rover, Mars mars) {
         this.rover = rover;
         this.mars = mars;
+
+        rover.setCommands("l1 f1");
+    }
+
+    public void explore() {
     }
 
     @Override

@@ -20,4 +20,17 @@ class RoverExplorationUseCaseTest {
         Assertions.assertEquals(roverExplorationUseCase.getRoverDirection(), Direction.S);
     }
 
+    @Test
+    void should_explore_mars_wow() {
+        Rover rover = new Rover(2, 6, Direction.S);
+        Mars mars = new Mars(5, 5);
+        RoverExplorationUseCase roverExplorationUseCase = new RoverExplorationUseCase(rover, mars);
+
+        roverExplorationUseCase.explore();
+
+        Assertions.assertEquals(roverExplorationUseCase.getRoverPositionX(), 1);
+        Assertions.assertEquals(roverExplorationUseCase.getRoverPositionY(), 1);
+        Assertions.assertEquals(roverExplorationUseCase.getRoverDirection(), Direction.N);
+    }
+
 }

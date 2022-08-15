@@ -184,12 +184,12 @@ class RoverTest {
         Rover rover = new Rover(1, 2, Direction.S);
         rover.setCommands("f3 l3 b2 r2");
 
-        rover.executeCommands();
+        boolean isWalking = rover.executeCommands();
 
         Assertions.assertEquals(rover.getPositionX(), 1);
         Assertions.assertEquals(rover.getPositionY(), -1);
         Assertions.assertEquals(rover.getDirection(), Direction.S);
-        Assertions.assertTrue(rover.isWalking());
+        Assertions.assertTrue(isWalking);
     }
 
     @Test
@@ -201,11 +201,11 @@ class RoverTest {
         rover.executeCommands();
         rover.executeCommands();
         rover.executeCommands();
-        rover.executeCommands();
+        boolean isWalking = rover.executeCommands();
 
         Assertions.assertEquals(rover.getPositionX(), 3);
         Assertions.assertEquals(rover.getPositionY(), -1);
         Assertions.assertEquals(rover.getDirection(), Direction.E);
-        Assertions.assertFalse(rover.isWalking());
+        Assertions.assertFalse(isWalking);
     }
 }
